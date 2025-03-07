@@ -1,0 +1,28 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+def plot_linear_search(arr, target, index=-1):
+    plt.bar(range(len(arr)), arr, color='blue')
+    if index != -1:
+        plt.bar(index, arr[index], color='red')  # Highlight the found element
+    plt.xlabel('Index')
+    plt.ylabel('Value')
+    plt.title(f'Linear Search - Searching for {target}')
+    plt.show()
+
+def linear_search(arr, target):
+    for index, value in enumerate(arr):
+        plot_linear_search(arr, target, index)
+        if value == target:
+            return index
+    return -1
+
+# Example usage
+arr = [5, 3, 7, 2, 8, 9]
+target = 7
+result = linear_search(arr, target)
+
+if result != -1:
+    print(f"Element found at index {result}")
+else:
+    print("Element not found")
